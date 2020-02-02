@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background-color: black;
+  font-family: cursive;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #12f012, 0 0 40px #36e600, 0 0 50px #00e699, 0 0 60px #cfe600, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #edff4d, 0 0 40px #4dffac, 0 0 50px #4dffbb, 0 0 60px #acff4d, 0 0 70px #4dff97, 0 0 80px #ff4da6;
+  }
+}
+</style>
+</head>
+<body onload="startTime()"> 
+
+<h1 class="glow">GLOWING TEXT</h1>
+     
+</body>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var day = today.getDay()
+    m = checkTime(m);
+    s = checkTime(s);
+    document.querySelector('.glow').innerHTML = today.toDateString() + " " + h + ":" + m + ":" + s ;
+    var t = setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+  }
+</script>
+</html> 
